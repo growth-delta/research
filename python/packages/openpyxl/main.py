@@ -6,4 +6,6 @@
 '''
 from config import openpyxl_script
 
-openpyxl_script(stock_ticker='AMT')
+openpyxl_script(stock_ticker='WMT')
+
+print('script has complted')

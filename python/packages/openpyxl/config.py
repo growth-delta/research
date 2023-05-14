@@ -1,4 +1,6 @@
-'''Config for ./main.py | for script classes and functions'''
+'''
+    Config for ./main.py | for script classes and functions
+'''
 
 # Import; packages, functions, classes.
 from openpyxl.chart import Reference, LineChart
@@ -11,7 +13,16 @@ import yfinance
 import pandas
 
 def collect_ohlc(stock_ticker='AAPL'):
-    '''collect_ohlc() | collects Open, High, Low, Close and Volume data for a stock from Yahoo Finance'''
+    ''' 
+        OHLC and Volume data for a stock from Yahoo Finance
+
+        args:
+            stock_ticker (string): Stock ticker symbol
+            
+        return:
+            OHLC data for a stock
+
+    '''
     # Create a ticker object
     data = yfinance.Ticker(stock_ticker).history(period='10y')
     return data

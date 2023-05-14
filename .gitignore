@@ -6,3 +6,5 @@ db.sqlite3
 na/
 node_modules/
 static_root/
+
+News.md

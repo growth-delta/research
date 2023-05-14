@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <div id="root"></div>
+
+  <div class="hero min-h-screen">
+    <div class="hero-content">
+      <div class="max-w-md mx-auto">
+
+        <div class="p-5 card w-full sm:w-96 bg-base-100 shadow-xl">
+          <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
+          <div class="card-body">
+            <h2 class="card-title text-lg sm:text-2xl">What's the best shoe?</h2>
+            <p class="text-sm sm:text-base">If a dog chews shoes whose shoes does he choose?</p>
+            <div class="card-actions flex justify-end mt-2 sm:mt-4">
+              <button class="btn btn-info text-sm sm:text-base">Create</button>
+              <button class="btn btn-primary text-sm sm:text-base">Admin</button>
+            </div>
+          </div>
+        </div>
+
+        <a href="{% url 'CRUD:api_surveys' %}">API</a>
+        
+      </div>
+    </div>
+  </div>
+  
+
+{% endblock content %}
+{% block page_js %}
+  <script type="text/javascript" src="{% static 'JavaScript/bundles/CRUD-bundle.js' %}"></script>
+{% endblock page_js %}
