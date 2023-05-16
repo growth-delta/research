@@ -5,7 +5,9 @@ from . import views
 
 app_name = 'CRUD'
 urlpatterns = [
+    # Frontend React.js
     path('', views.page, name='home'),
-    path('api/surveys/', views.SurveyView.as_view(), name='surveys'),
+    # Backend API
+    path('api/surveys/', views.SurveyView.as_view(), name='api_surveys'),
     path('api/surveys/<int:pk>', views.SurveyView.as_view()),
 ]
