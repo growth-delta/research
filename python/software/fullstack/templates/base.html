@@ -30,14 +30,15 @@
     <body class="bg-neutral-content">
         {% block body_wrapper %}
             {% block body %}
+
                 {% block content %}
                     <!-- PAGE -->
                 {% endblock content %}
+
             {% endblock body %}
         {% endblock body_wrapper %}
         {% block page_js %}
             <script type="text/javascript" src="{% static 'bundles/js/site-bundle.js' %}"></script>
         {% endblock page_js %}
-
     </body>
 </html>
