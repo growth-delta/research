@@ -3,39 +3,31 @@
 <html lang="en" data-theme="corporate">
     <head>
         <meta charset="utf-8">
-            <!--IE compatibility-->
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <!--Mobile friendly-->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-            <!-- On Page META SEO -->
         <title>{% block page_title %} Default SEO Title {% endblock %}</title>
         <meta name="description" content="{% block description %} Default SEO Description {% endblock %}">
         <meta name="keywords" content="{% block keywords %} Default SEO KeyWords {% endblock %}">
-            <!-- Styles -->
+            <!-- Tailwind CSS | DaisyUI -->
         <link rel="stylesheet" href="{% static 'bundles/css/tailwind-bundle.css' %}">
         <!-- <link type="application/javascript" href="{% static 'bundles/js/tailwind-bundle.js' %}"> -->
-
-            <!-- Tailwind CSS | DaisyUI -->
-        <!-- <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" /> -->
-        <!-- <script src="https://cdn.tailwindcss.com"></script> -->
-        
             <!-- Font Awesome Icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        
         {% block page_head %}
             <!-- <link rel="stylesheet" href="{% static '' %}"> -->
         {% endblock %}
-    
     </head>
-    <body class="bg-neutral-content">
+    <body class="min-h-screen">
         {% block body_wrapper %}
+            <div class="sticky top-0 bg-base-200">
+                {% include 'components/navbar.html' %}
+            </div>
             {% block body %}
-
                 {% block content %}
-                    <!-- PAGE -->
+                    <!-- index.html | React Frontend -->
                 {% endblock content %}
-
             {% endblock body %}
+            {% include 'components/footer.html' %}
         {% endblock body_wrapper %}
         {% block page_js %}
             <script type="text/javascript" src="{% static 'bundles/js/site-bundle.js' %}"></script>

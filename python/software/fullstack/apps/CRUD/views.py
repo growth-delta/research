@@ -1,7 +1,5 @@
-from django.http.response import Http404
 from django.http.response import JsonResponse
-from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.shortcuts import render
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -10,7 +8,7 @@ from . models import Survey
 from . serializers import SurveySerializer
 
 # React Front-end
-def page(request):
+def page(request, url=None):
     return render(request, 'index.html')
 
 # API | Rest API
