@@ -1,0 +1,79 @@
+<!doctype html>
+<html data-theme="corporate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Fundamentals 101</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <div class="min-h-screen bg-gray-100">
+
+        <div class="container mx-auto p-6">
+            <div>
+                <div class="sm:grid sm:gap-6 sm:grid-cols-2">
+
+                    <div class="bg-white rounded shadow-md flex-1">
+                        <div class="p-6">
+                            <h2 id="root_title01" class="text-lg sm:text-2xl"></h2>
+                            <p id="root_content01" class="p-6"></p>
+                            <div id="user-info" class="card w-96 bg-base-100 shadow-xl p-6"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white rounded shadow-md flex-1">
+                        <figure>
+                            <img src="https://th.bing.com/th/id/R.8af62dc0c96fba96da080bb07a3c1a45?rik=%2bPbBOcOxoVtwzw&pid=ImgRaw&r=0" alt="Shoes">
+                        </figure>
+                        <div class="p-6">
+                            <div class="mt-4">
+                                <label for="name" class="block font-bold">What is your username?</label>
+                                <input id="name" type="text" placeholder="Type name here" class="w-full border border-gray-300 rounded px-3 py-2">
+                                <label class="label">
+                                    <span class="label-text-alt"></span>
+                                    <span class="label-text-alt">Enter username in full</span>
+                                </label>
+                            </div>
+                            <button onclick="formNames()" class="btn btn-accent bg-green-500 text-sm sm:text-base font-bold w-full mt-4">SUBMIT</button>
+                            <div class="card-actions flex justify-end mt-2 sm:mt-4">
+                                <!-- <button onclick="window.location.reload()" id="root_button01" class="btn btn-primary"></button> -->
+                                <button onclick="newCard()" id="root_button01" class="btn btn-primary"></button>
+                                <button id="root_button02" class="btn btn-secondary"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto p-6">
+            <div>
+                <div class="bg-white rounded shadow-md flex-1">
+                    <div class="p-6">
+                        <div>
+                            <label for="answer" class="block font-bold">What is your username?</label>
+                            <input id="answer" type="text" placeholder="Type answer here" class="w-full border border-gray-300 rounded px-3 py-2">
+                            <label class="label">
+                                <span class="label-text-alt"></span>
+                                <span class="label-text-alt">Enter username in full</span>
+                            </label>
+                        </div>
+                        <button onclick="addition()" class="btn btn-primary text-sm sm:text-base font-bold w-full">SUBMIT</button>
+                    </div>
+                    <h2 class="text-end text-5xl font-bold p-3" id="formula"></h2>
+                    <hr>
+                    <h2 class="text-end text-5xl font-bold p-3" id="output"></h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- <h2 id="root_title02" class="text-lg sm:text-2xl"></h2> -->
+    <script src="./101_JavaScript.js"></script>
+
+</body>
+</html>
