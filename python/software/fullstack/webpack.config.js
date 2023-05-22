@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
+    'style': './frontend/css/style.css',
     tailwind: './frontend/css/tailwind.js',
     site: './frontend/js/site.js',
     CRUD: './frontend/js/applications/CRUD/main.js',

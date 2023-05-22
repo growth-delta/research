@@ -1,1 +1,1 @@
-require('./packages/Alpine.js')
+require('./packages/Alpine.js');

@@ -3,6 +3,9 @@ from django.shortcuts import render
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.permissions import AllowAny
+from rest_framework import status
+from django.http import Http404
 
 from . models import Survey
 from . serializers import SurveySerializer
@@ -11,49 +14,50 @@ from . serializers import SurveySerializer
 def page(request, url=None):
     return render(request, 'index.html')
 
+# Django Front-end
+def readme(request):
+    return render(request, 'readme.html')
+
 # API | Rest API
 class SurveyView(APIView):
+    permission_classes = [AllowAny]
 
     def get_survey(self, pk):
         try:
-            survey  = Survey.objects.get(respondentId=pk)
-            return survey
-        # except Survey.DoesNotExist():
-        #     raise Http404
-        except:
-            return JsonResponse("Survey Does Not Exist", safe=False)
+            return Survey.objects.get(respondentId=pk)
+        except Survey.DoesNotExist:
+            raise Http404("Survey does not exist.")
 
     def get(self, request, pk=None):
         if pk:
-            data = self.get_survey(pk)
-            serializer = SurveySerializer(data)
+            survey = self.get_survey(pk)
+            serializer = SurveySerializer(survey)
         else:
-            data = Survey.objects.all()
-            serializer = SurveySerializer(data, many=True)
-        return Response(serializer.data)
+            surveys = Survey.objects.all()
+            serializer = SurveySerializer(surveys, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):
-        data = request.data
-        serializer = SurveySerializer(data=data)
+        serializer = SurveySerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse('Survey Posted Successfully.', safe=False)
+            return Response("Survey posted successfully.", status=status.HTTP_201_CREATED)
         else:
-            return JsonResponse(f'Survey Post Failed.\n\n{serializer.errors}', safe=False)
-        
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
     def put(self, request, pk=None):
-        survey_update = Survey.objects.get(respondentId=pk)
-        serializer = SurveySerializer(instance=survey_update, data=request.data, partial=True)
+        survey = self.get_survey(pk)
+        serializer = SurveySerializer(instance=survey, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
-            return JsonResponse('Survey Update Successfully.', safe=False)
-        return JsonResponse(f'Survey Update Failed.\n\n{serializer.errors}', safe=False)
-    
+            return Response("Survey updated successfully.", status=status.HTTP_200_OK)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
     def delete(self, request, pk=None):
-        survey_delete = self.get_survey(pk)
-        survey_delete.delete()
-        return JsonResponse(f'Survey Successfully Deleted.', safe=False)
-        # return redirect(reverse('CRUD:surveys'))
+        survey = self.get_survey(pk)
+        survey.delete()
+        return Response("Survey successfully deleted.", status=status.HTTP_204_NO_CONTENT)
 
 
    

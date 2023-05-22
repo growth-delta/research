@@ -23,15 +23,15 @@ class Survey(models.Model):
 # COMMIT;
 
 # {
-#     "survey": {
-#         "respondentId":1,
-#         "emailAddress":"delta@growth-delta.com",
-#         "dateCreated":"2023-05-14T10:00:00",
-#         "dateUpdated":"2023-05-14T10:00:00",
-#         "age":25,
-#         "gender":"Male",
-#         "Q1":"Yes",
-#         "Q2":"Yes",
-#         "Q3":"Yes"
-#     }
+    # "survey": {
+        # "respondentId":1,
+        # "emailAddress":"delta@growth-delta.com",
+        # "dateCreated":"2023-05-14T10:00:00",
+        # "dateUpdated":"2023-05-14T10:00:00",
+        # "age":25,
+        # "gender":"Male",
+        # "Q1":"Yes",
+        # "Q2":"Yes",
+        # "Q3":"Yes"
+    # }
 # }

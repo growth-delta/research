@@ -1,16 +1,24 @@
 import React, { useMemo } from 'react';
 import { Routes, Route } from "react-router-dom";
 
+import Navigation from './components/Navigation';
+
+import Create from './components/Create';
+// import Edit from './components/Edit';
+import Table from './components/Table'
+
 function App() {
-    var titleMain = `Full Stack CRUD`;
   return (
-    <div className='p-8'>
-        <a href='/' className="text-5xl font-bold">{titleMain}</a>
-      {/* <Routes>
-        <Route path="/" element={...} />
-      </Routes> */}
+    <div className='container mx-auto'>
+      <Navigation />
+      <Routes>
+        <Route path='' element={<Table />} />
+        <Route path='/create' element={<Create />} />
+        {/* <Route path="/edit/:respondentId/" element={<Edit />} /> */}
+      </Routes>
     </div>
   );
 };
 
 export default App;
+

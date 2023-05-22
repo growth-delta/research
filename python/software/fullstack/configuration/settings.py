@@ -159,9 +159,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # DRF config
 # https://www.django-rest-framework.org/api-guide/permissions/
 # IsAuthenticatedOrReadOnly Authenticated to change, anyone can view
-# REST_FRAMEWORK = {
-    
-#     'DEFAULT_PERMISSION_CLASSES': [
-#         'rest_framework.permissions.IsAuthenticatedOrReadOnly'
-#     ],
-# }
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny'
+    ],
+}
+
+# APPEND_SLASH = False
